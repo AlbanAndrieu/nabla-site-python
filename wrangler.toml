@@ -1,0 +1,6 @@
+name = "nabla-site-python"
+main = "main.py"
+compatibility_date = "2024-12-27"
+
+[env.production]
+name = "nabla-site-python-production"
