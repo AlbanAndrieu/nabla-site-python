@@ -33,7 +33,7 @@ uv sync
 uvicorn main:app --reload
 ```
 
-3. Access the application:
+4. Access the application:
 - API: http://localhost:8000
 - Interactive docs: http://localhost:8000/docs
 - Alternative docs: http://localhost:8000/redoc
