@@ -1,0 +1,11 @@
+[project]
+name = "nabla-site-python"
+version = "1.0.0"
+description = "Sample FastAPI Hello World for Vercel and Cloudflare deployment"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "fastapi==0.115.5",
+    "uvicorn[standard]==0.32.1",
+]
+
