@@ -1,7 +1,7 @@
 # Ignore everything (folders and files) on root only
 /*
-# vercel do not like .python-version-direnv
-.python-version-direnv
+# vercel do not like .python-version
+.python-version
 !api
 !public
 !templates
