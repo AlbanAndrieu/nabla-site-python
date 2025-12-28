@@ -1,0 +1,5 @@
+dynamic==0.1.1 ; python_version >= "3.12" and python_version < "4.0" \
+    --hash=sha256:385a601076538274a42060b1d650fe662f7aa5b15ae95bbdd4ac6d2c49302dba
+setuptools==80.9.0 ; python_version >= "3.12" and python_version < "4.0" \
+    --hash=sha256:062d34222ad13e0cc312a4c02d73f059e86a4acbfbdea8f8f76b28c99f306922 \
+    --hash=sha256:f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c
