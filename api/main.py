@@ -15,10 +15,10 @@ def get_sample_data():
         "data": [
             {"id": 1, "name": "Sample Item 1", "value": 100},
             {"id": 2, "name": "Sample Item 2", "value": 200},
-            {"id": 3, "name": "Sample Item 3", "value": 300}
+            {"id": 3, "name": "Sample Item 3", "value": 300},
         ],
         "total": 3,
-        "timestamp": "2024-01-01T00:00:00Z"
+        "timestamp": "2024-01-01T00:00:00Z",
     }
 
 
@@ -28,9 +28,9 @@ def get_item(item_id: int):
         "item": {
             "id": item_id,
             "name": "Sample Item " + str(item_id),
-            "value": item_id * 100
+            "value": item_id * 100,
         },
-        "timestamp": "2024-01-01T00:00:00Z"
+        "timestamp": "2024-01-01T00:00:00Z",
     }
 
 
@@ -356,9 +356,11 @@ async def info():
     return {
         "name": "nabla-site-python",
         "version": "1.0.0",
-        "description": "Sample FastAPI Hello World for Vercel and Cloudflare deployment"
+        "description": "Sample FastAPI Hello World for Vercel and Cloudflare deployment",
     }
+
 
 if __name__ == "__main__":
     import uvicorn
+
     uvicorn.run("main:app", host="0.0.0.0", port=5001, reload=True)

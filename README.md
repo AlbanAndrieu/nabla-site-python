@@ -28,10 +28,10 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 [fastapi-sample](https://github.com/vercel/vercel/blob/main/examples/fastapi/pyproject.toml)
 
 [backend-fastapi](https://vercel.com/docs/frameworks/backend/fastapi)
-[runtimes-python](https://vercel.com/docs/functions/runtimes/python)
+[nextjs-fastapi-starter](https://vercel.com/templates/next.js/nextjs-fastapi-starter)
+[medium-fastapi-application-on-vercel](https://medium.com/@masud.pervez27/building-and-deploying-my-first-fastapi-application-on-vercel-a-complete-journey-7b010345162c)
 
-https://vercel.com/templates/next.js/nextjs-fastapi-starter
-https://medium.com/@masud.pervez27/building-and-deploying-my-first-fastapi-application-on-vercel-a-complete-journey-7b010345162c
+[runtimes-python](https://vercel.com/docs/functions/runtimes/python)
 
 ```bash
 vc init fastapi
