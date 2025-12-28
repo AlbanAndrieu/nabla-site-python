@@ -1,0 +1,15 @@
+# Ignore everything (folders and files) on root only
+/*
+# vercel do not like .python-version
+.python-version
+!api
+!public
+!templates
+!nabla
+!main.py
+!pyproject.toml
+!uv.lock
+!my-app
+!vercel.json
+!*.html
+packages/*/test/**
