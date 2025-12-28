@@ -100,6 +100,7 @@ wrangler login
 
 3. Deploy:
 ```bash
+uv run pywrangler dev
 wrangler deploy
 ```
 

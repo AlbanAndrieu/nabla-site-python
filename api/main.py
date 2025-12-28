@@ -1,6 +1,11 @@
-from fastapi import FastAPI
+import jinja2
+from workers import WorkerEntrypoint
+
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 
+environment = jinja2.Environment()
+template = environment.from_string("Hello, {{ name }}!")
 
 app = FastAPI(
     title="Vercel + FastAPI",
@@ -350,6 +355,19 @@ async def health():
     return {"status": "healthy"}
 
 
+@app.get("/hi/{name}")
+async def say_hi(name: str):
+    message = template.render(name=name)
+    return {"message": message}
+
+
+@app.get("/env")
+async def env(req: Request):
+    env = req.scope["env"]
+    message = f"Here is an example of getting an environment variable: {env.MESSAGE}"
+    return {"message": message}
+
+
 @app.get("/api/info")
 async def info():
     """API info endpoint."""
@@ -358,6 +376,13 @@ async def info():
         "version": "1.0.0",
         "description": "Sample FastAPI Hello World for Vercel and Cloudflare deployment",
     }
+
+
+class Default(WorkerEntrypoint):
+    async def fetch(self, request):
+        import asgi
+
+        return await asgi.fetch(app, request.js_object, self.env)
 
 
 if __name__ == "__main__":
