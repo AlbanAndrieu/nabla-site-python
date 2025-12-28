@@ -5,6 +5,10 @@ description = "Sample FastAPI Hello World for Vercel and Cloudflare deployment"
 readme = "README.md"
 requires-python = ">=3.12"
 
+[project.optional-dependencies]
+build = ["setuptools", "cython"]
+toml = ["tomli; python_version < '3.11'"]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
