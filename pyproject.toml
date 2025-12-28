@@ -22,7 +22,7 @@ dependencies = [
     "httpcore>=1.0.9",
     "httpx>=0.28.1",
     "idna>=3.11",
-    "jiter>=0.11.1",
+    # "jiter>=0.11.1",
     "openai>=2.6.0",
     "pydantic>=2.12.3",
     "pydantic_core>=2.41.4",
@@ -43,5 +43,15 @@ dependencies = [
 [dependency-groups]
 dev = [
     "workers-py",
-    "workers-runtime-sdk"
+    "workers-runtime-sdk",
+    "pre-commit>=4.5.0",
+    "pytest>=8.4.1",
+    "requests>=2.32.5",
+    "ruff>=0.12.10",
 ]
+
+[tool.vercel.scripts]
+build = "uv sync"
+
+[project.scripts]
+app = "api:main"
