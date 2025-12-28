@@ -3,9 +3,11 @@ name = "nabla-site-python"
 version = "1.0.0"
 description = "Sample FastAPI Hello World for Vercel and Cloudflare deployment"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.12"
+
+# TODO https://vercel.com/docs/functions/runtimes/python
 dependencies = [
-    "fastapi==0.115.5",
-    "uvicorn[standard]==0.32.1",
+    "fastapi>=0.121.0",
+    "uvicorn[standard]==0.34.0",
 ]
 

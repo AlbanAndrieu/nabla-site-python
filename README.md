@@ -23,10 +23,34 @@ This is a minimal FastAPI application with three endpoints:
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-2. Install dependencies:
+2. Init sample:
+
+[fastapi-sample](https://github.com/vercel/vercel/blob/main/examples/fastapi/pyproject.toml)
+
+[backend-fastapi](https://vercel.com/docs/frameworks/backend/fastapi)
+[runtimes-python](https://vercel.com/docs/functions/runtimes/python)
+
+```bash
+vc init fastapi
+```
+
+3. Install dependencies:
 ```bash
 uv sync
 ```
+
+
+## Running Locally
+
+Start the development server on http://0.0.0.0:8000
+
+```bash
+python main.py
+# using uv:
+uv run main.py
+```
+
+When you make changes to your project, the server will automatically reload.
 
 3. Run the development server:
 ```bash
@@ -74,6 +98,15 @@ wrangler login
 3. Deploy:
 ```bash
 wrangler deploy
+```
+
+```
+🎉  SUCCESS  Application created successfully!
+
+💻 Continue Developing
+Change directories: cd api
+uv self update
+Deploy: npm run deploy
 ```
 
 The `wrangler.toml` configuration file handles the deployment settings automatically.
