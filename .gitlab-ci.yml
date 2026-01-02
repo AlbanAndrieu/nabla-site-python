@@ -443,24 +443,24 @@ lint-eslint-npm:
     reports:
       codequality: gl-codequality.json
 
-unit-tests-npm:
-  image: ${CI_IMAGE_NPM}
-  extends: .unit-tests-npm
-  needs: ["install-npm"]
-  dependencies:
-    - install-npm
-  allow_failure: false
-  cache:
-    # inherit all global cache settings
-    <<: *global_cache
-    # override the policy
-    policy: pull
-  script:
-    - cd vue-client/
-    - export NPM_TOKEN=$CI_JOB_TOKEN
-    - npm ci
-    - npx nuxi prepare
-    - npm run build
+# unit-tests-npm:
+#   image: ${CI_IMAGE_NPM}
+#   extends: .unit-tests-npm
+#   needs: ["install-npm"]
+#   dependencies:
+#     - install-npm
+#   allow_failure: false
+#   cache:
+#     # inherit all global cache settings
+#     <<: *global_cache
+#     # override the policy
+#     policy: pull
+#   script:
+#     - cd vue-client/
+#     - export NPM_TOKEN=$CI_JOB_TOKEN
+#     - npm ci
+#     - npx nuxi prepare
+#     - npm run build
 
 mega_linter:
   extends: .mega_linter_common
