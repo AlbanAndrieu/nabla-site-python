@@ -12,7 +12,7 @@ authors = [
 maintainers = [
   { name = "Alban Andrieu", email = "alban.andrieu@free.fr" }
 ]
-dependencies = ["dynamic"]
+# dependencies = ["dynamic"]
 requires-python = ">=3.12"
 readme = "README.md"
 license = "MIT"
@@ -361,7 +361,6 @@ poetry-plugin-export = ">=1.8"
 #[tool]
 #setuptools-pipfile = "Pipfile"
 
-
 [tool.poetry.group.dev.dependencies]
 commitizen = "^4.10.0"
 
@@ -568,3 +567,9 @@ app = "api:main"
 
 [tool.uv]
 package = false
+
+# only used in github actions
+[tool.poetry.group.github-actions]
+optional = true
+[tool.poetry.group.github-actions.dependencies]
+pytest-github-actions-annotate-failures = "^0.1.7"
