@@ -1,5 +1,5 @@
 # fail_fast: true
-minimum_pre_commit_version: 4.2.0
+minimum_pre_commit_version: 4.5.0
 exclude: |
   (?x)^(
       .*\{\{.*\}\}.*|     # Exclude any files with cookiecutter variables
@@ -31,17 +31,24 @@ ci:
   submodules: true
 default_install_hook_types:
 -   pre-commit # gitleak
-    # make sure you include `prepare-commit-msg` in `default_install_hook_types`
-    # prepare-commit-msg made by oco
-    # - prepare-commit-msg
+  # make sure you include `prepare-commit-msg` in `default_install_hook_types`
+  # prepare-commit-msg made by oco
+  # - prepare-commit-msg
 -   commit-msg
+-   pre-push
+  
+default_stages:
+-   pre-commit
+
 repos:
   # ---------------------------------------------------------------------------- #
   #                              🔄 Pre-Commit Hooks                             #
   # ---------------------------------------------------------------------------- #
 -   repo: meta
     hooks:
+    -   id: check-hooks-apply
     -   id: check-useless-excludes
+
 -   repo: https://gitlab.com/vojko.pribudic.foss/pre-commit-update
     rev: v0.9.0
     hooks:
@@ -259,7 +266,7 @@ repos:
     -   id: shfmt-docker # Docker image (requires Docker to run)
         name: "🐚 🐳 shell · Format shell scripts"
 -   repo: https://github.com/detailyang/pre-commit-shell
-    rev: v1.0.6
+    rev: 1.0.5
     hooks:
     -   id: shell-lint
         name: "🐚 shell · Lint shell scripts"
@@ -296,7 +303,7 @@ repos:
 
     ### SQL ###
 -   repo: https://github.com/sqlfluff/sqlfluff
-    rev: 3.5.0
+    rev: 4.0.0a2
     hooks:
     -   id: sqlfluff-fix
         name: "📊 SQL · Attempts to fix rule violations."
@@ -383,7 +390,7 @@ repos:
 
     ### Additional File Types ###
 -   repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.1.0
+    rev: v4.0.0-alpha.8
     hooks:
     -   id: prettier
         name: "✨ misc-files · Format misc web files"
@@ -418,16 +425,16 @@ repos:
     hooks:
     -   id: helmlint
         name: "☸️ helmlint · Validate Helm Charts"
-  # -   repo: https://github.com/norwoodj/helm-docs
-  #     rev: '19.0614'
-  #     hooks:
-  #     -   id: helm-docs
-  #         args:
-  #         -   --chart-search-root=charts/helm-sample/charts
-  #         files: (README\.md\.gotmpl|(Chart|requirements|values)\.yaml)$
-  #         name: "☸️ helm docs · Generate Helm Charts documentation"
+# -   repo: https://github.com/norwoodj/helm-docs
+#     rev: '19.0614'
+#     hooks:
+#     -   id: helm-docs
+#         args:
+#         -   --chart-search-root=charts/helm-sample/charts
+#         files: (README\.md\.gotmpl|(Chart|requirements|values)\.yaml)$
+#         name: "☸️ helm docs · Generate Helm Charts documentation"
 
-  # ----------------------------- 🔒 Security Tools ---------------------------- #
+    # ----------------------------- 🔒 Security Tools ---------------------------- #
 
 -   repo: https://github.com/PyCQA/bandit
     rev: 1.9.2
@@ -503,10 +510,12 @@ repos:
     hooks:
     -   id: commitizen
         name: "🌳 git · Validate commit message"
-        stages: [commit-msg]
+        # stages: [commit-msg]
+        stages: [pre-push]
         additional_dependencies: [cz-conventional-gitmoji]
     -   id: commitizen-branch
-        stages: [pre-push]
+        # stages: [pre-push]
+        stages: [post-commit]
 
 -   repo: https://github.com/jorisroovers/gitlint
     rev: v0.19.1
