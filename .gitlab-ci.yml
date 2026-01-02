@@ -465,8 +465,8 @@ unit-tests-npm:
 mega_linter:
   extends: .mega_linter_common
   needs: ["test-pytest"]
-  tags:
-    - jusmundi-nomad-runner
+  # tags:
+  #   - nabla-nomad-runner
   allow_failure: false
 
 .build-image-dockefile-pre: &build-image-dockefile-pre
@@ -541,8 +541,8 @@ publish-npm:
   needs: ["install-npm"]
   dependencies:
     - install-npm
-  tags:
-    - jusmundi-nomad-runner
+  # tags:
+  #   - nabla-nomad-runner
   script:
     # If no .npmrc is included in the repo, generate a temporary one that is configured to publish to GitLab's NPM registry
     - |
@@ -586,19 +586,19 @@ publish-npm:
 deploy:dev:
   extends: .deploy:dev
   needs: ["docker-build"]
-  tags:
-    - jusmundi-nomad-runner
+  # tags:
+  #   - nabla-nomad-runner
 
 deploy:uat:
   extends: .deploy:uat
   needs: ["docker-build"]
-  tags:
-    - jusmundi-nomad-runner
+  # tags:
+  #   - nabla-nomad-runner
 
 deploy:prod:
   extends: .deploy:prod
-  tags:
-    - jusmundi-nomad-runner
+  # tags:
+  #   - nabla-nomad-runner
 
 pages-deploy:
   image: ${CI_IMAGE_NPM}
@@ -642,8 +642,8 @@ pages-deploy:
 dast:
   dependencies: ["pages-deploy"]
   stage: dast
-  tags:
-    - jusmundi-nomad-runner
+  # tags:
+  #   - nabla-nomad-runner
   variables:
     # DAST_TARGET_URL: "https://nabla-site-python.service.gra.${ENV}.consul"
     # DAST_AUTH_URL: "https://nabla-site-python.service.gra.${ENV}.consul/login"
