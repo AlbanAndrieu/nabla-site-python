@@ -129,7 +129,7 @@ variables:
   DD_ARGS: "${TRIVY_ARGS}"
   TRIVY_FS_ARGS: "${TRIVY_ARGS}  --skip-files package-lock.json --skip-files yarn.lock"
   DD_PRODUCT_NAME: "$CI_PROJECT_NAME"
-  DD_SERVICE: "test" # fastapi-sample
+  DD_SERVICE: "test" # nabla-site-python
   DD_PRODUCT_TYPE_NAME: "Showcase Alban" # "Research and Development"
   DD_URL_UAT: "http://defectdojo.service.gra.uat.consul"
   DD_TEST_NAME: "JM Trivy"
@@ -142,7 +142,7 @@ variables:
   CLOC_SOURCE: "nabla"
   # RUNNER_GENERATE_ARTIFACTS_METADATA: "true"
   # FF_NETWORK_PER_BUILD: "true" # enable network per build so all services can communicate on the same network
-  APP_NAME: fastapi-sample
+  APP_NAME: nabla-site-python
   NOMAD_ENV_DEPLOY: "-var env=${ENV} -var team=${ENV}"
   NOMAD_SERVICE_DEPLOY_URL_SUFFIX: docs # citemap/ping
   NOMAD_SERVICE_DEPLOY_URL: http://${APP_NAME}.service.gra.${ENV}.consul/${NOMAD_SERVICE_DEPLOY_URL_SUFFIX}
@@ -157,7 +157,7 @@ variables:
   # Force-enable BuildKit in "docker build" commands (on Linux it is disabled by default)
   DOCKER_BUILDKIT: 1
   # Build the fully-qualified image name (including the registry server prefix), but without the ":version" suffix
-  IMAGE_BASE_TAG: $CI_REGISTRY_IMAGE/fastapi-sample
+  IMAGE_BASE_TAG: $CI_REGISTRY_IMAGE/nabla-site-python
   CONTAINER_IMAGE: $IMAGE_BASE_TAG:latest
   # Complement the base tag with various versions, one per image target/stage. We use the CI_COMMIT_REF_SLUG (which is
   # basically the branch/tag name, but slugified) to ensure that the cache images are also different for each branch.
@@ -170,14 +170,14 @@ variables:
   API_REPORTER_BEARER_TOKEN: ""
   DEFAULT_COV_ARGS: "--no-ddtrace --no-cov" # --cov-fail-under=1
   # NETLIFY_SITE_ID: '8dc3759f-f33d-424d-9300-d21f859ca183'
-  DAST_TARGET_URL: https://fastapi-sample.service.gra.${ENV}.consul
-  DAST_AUTH_URL: "https://fastapi-sample.service.gra.${ENV}.consul/login"
+  DAST_TARGET_URL: https://nabla-site-python.service.gra.${ENV}.consul
+  DAST_AUTH_URL: "https://nabla-site-python.service.gra.${ENV}.consul/login"
   DAST_BROWSER_SCAN: "true" # use the browser-based GitLab DAST crawler
   DAST_FULL_SCAN_ENABLED: "true"
   # DAST_AUTH_USERNAME: “john”
   # DAST_AUTH_PASSWORD: “P@ssw0rd”
-  FUZZAPI_TARGET_URL: https://fastapi-sample.service.gra.${ENV}.consul/openapi.json
-  FUZZAPI_OPENAPI: https://fastapi-sample.service.gra.${ENV}.consul/openapi.json
+  FUZZAPI_TARGET_URL: https://nabla-site-python.service.gra.${ENV}.consul/openapi.json
+  FUZZAPI_OPENAPI: https://nabla-site-python.service.gra.${ENV}.consul/openapi.json
   FUZZAPI_PROFILE: Quick-10
   CONTAINER_SCANNING_DISABLED: false
   CUSTOM_CONTAINER_SCANNING_DISABLED: "true"
@@ -645,15 +645,15 @@ dast:
   tags:
     - jusmundi-nomad-runner
   variables:
-    # DAST_TARGET_URL: "https://fastapi-sample.service.gra.${ENV}.consul"
-    # DAST_AUTH_URL: "https://fastapi-sample.service.gra.${ENV}.consul/login"
+    # DAST_TARGET_URL: "https://nabla-site-python.service.gra.${ENV}.consul"
+    # DAST_AUTH_URL: "https://nabla-site-python.service.gra.${ENV}.consul/login"
     # DAST_AUTH_USERNAME_FIELD: "css:[name=username]"
     # DAST_AUTH_PASSWORD_FIELD: "css:[name=password]"
     # DAST_AUTH_SUBMIT_FIELD: "css:button[type=submit]"
     # DAST_TARGET_CHECK_TIMEOUT: "5m"  # Wait up to 5 minutes
     # DAST_AUTH_COOKIE_NAMES: "sessionID,refreshToken"
-    # DAST_AUTH_SUCCESS_IF_AT_URL: "https://fastapi-sample.service.gra.${ENV}.consul/admin"
-    DAST_SCOPE_EXCLUDE_URLS: "https://fastapi-sample.service.gra.${ENV}.consul/logout,/user/.*/logout"
+    # DAST_AUTH_SUCCESS_IF_AT_URL: "https://nabla-site-python.service.gra.${ENV}.consul/admin"
+    DAST_SCOPE_EXCLUDE_URLS: "https://nabla-site-python.service.gra.${ENV}.consul/logout,/user/.*/logout"
     # DAST_BROWSER_SCAN: "true" # use the browser-based GitLab DAST crawler
     DAST_PAGE_READY_AFTER_NAVIGATION_TIMEOUT: "45s"
     DAST_PAGE_READY_AFTER_ACTION_TIMEOUT: "15s"
@@ -712,7 +712,7 @@ netlify:
   stage: deploy
   environment:
     name: staging
-    url: "https://fastapi-sample.service.gra.uat.consul/"
+    url: "https://nabla-site-python.service.gra.uat.consul/"
   before_script:
     - npm install -g netlify-cli
     - apk add curl

@@ -25,6 +25,6 @@ plugins:
       # can be skipped on prod branch
       message: "chore(release): ${nextRelease.version} [skip ci on prod]"
 branches:
-  - main
-  # - master
+  # - main
+  - master
 tagFormat: "${version}"
