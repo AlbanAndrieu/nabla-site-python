@@ -524,7 +524,7 @@ default-version = "0.0.0+unknown"
 
 [tool.commitizen]
 name = "cz_customize"
-version = "1.2.3"
+version = "1.0.0"
 update_changelog_on_bump = true
 
 [tool.commitizen.customize]
@@ -570,6 +570,7 @@ app = "api:main"
 package = false
 
 # only used in github actions
+
 [tool.poetry.group.github-actions]
 optional = true
 [tool.poetry.group.github-actions.dependencies]

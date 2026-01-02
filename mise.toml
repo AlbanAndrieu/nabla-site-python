@@ -10,6 +10,7 @@ helm = "latest"
 terraform = "latest"
 argocd = "latest"
 trivy = "latest"
+pre-commit = "latest"
 
 [env]
 # Utiliser le nom du projet dérivé du répertoire courant
