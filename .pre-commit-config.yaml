@@ -36,7 +36,7 @@ default_install_hook_types:
   # - prepare-commit-msg
 -   commit-msg
 -   pre-push
-  
+
 default_stages:
 -   pre-commit
 
@@ -266,7 +266,7 @@ repos:
     -   id: shfmt-docker # Docker image (requires Docker to run)
         name: "🐚 🐳 shell · Format shell scripts"
 -   repo: https://github.com/detailyang/pre-commit-shell
-    rev: 1.0.5
+    rev: v1.0.6
     hooks:
     -   id: shell-lint
         name: "🐚 shell · Lint shell scripts"
@@ -303,7 +303,7 @@ repos:
 
     ### SQL ###
 -   repo: https://github.com/sqlfluff/sqlfluff
-    rev: 4.0.0a2
+    rev: 3.5.0
     hooks:
     -   id: sqlfluff-fix
         name: "📊 SQL · Attempts to fix rule violations."
@@ -355,7 +355,7 @@ repos:
 
     ### Javascript & Web Tools ###
 -   repo: https://github.com/biomejs/pre-commit
-    rev: "v2.3.10"
+    rev: "v2.3.11"
     hooks:
     -   id: biome-check
         name: "🟨 javascript · Lint, format, and safe fixes with Biome"
@@ -390,7 +390,7 @@ repos:
 
     ### Additional File Types ###
 -   repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v4.0.0-alpha.8
+    rev: v3.1.0
     hooks:
     -   id: prettier
         name: "✨ misc-files · Format misc web files"
@@ -506,7 +506,7 @@ repos:
         -   "@commitlint/config-conventional"
         -   conventional-changelog-conventionalcommits
 -   repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.11.0
+    rev: v4.11.1
     hooks:
     -   id: commitizen
         name: "🌳 git · Validate commit message"
