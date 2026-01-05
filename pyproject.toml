@@ -156,7 +156,8 @@ open_telemetry = [
 panda = [
     "sqlalchemy[asyncio]>=2.0.20",
     "sqlmodel>=0.0.25",
-    "psycopg2>=2.9.7",
+    # "psycopg2>=2.9.7",
+    "psycopg2-binary>=2.9.11",
 ]
 influxdb = ["influxdb-client>=1.29.1"]
 csv = ["asyncpg>=0.27.0"]
@@ -251,7 +252,7 @@ default-groups = [
     "utils",
     "encryption",
     "open_telemetry",
-    "panda",
+    # "panda",
     "dev",
 ]
 
