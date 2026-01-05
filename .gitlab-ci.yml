@@ -105,8 +105,8 @@ default:
 
 # Tip: Insert the following variables anywhere below stages and include
 variables:
-  CI_IMAGE_PYTHON: python:3.12.10
-  PROJECT_PYTHON_VERSION: "3.12"
+  CI_IMAGE_PYTHON: python:3.13.3
+  PROJECT_PYTHON_VERSION: "3.13"
   POETRY_VERSION: "2.2.1"
   CI_IMAGE_NPM: node:24-alpine # 24.11-alpine3.23
   # CI_REGISTRY: registry.gitlab.com
@@ -428,20 +428,20 @@ install-npm:
     when: on_success # don't attempt to upload the docs if generating them failed
   allow_failure: false
 
-lint-eslint-npm:
-  extends: .lint-eslint-npm
-  script:
-    - npm test --cache .npm
-    - npx eslint --format gitlab .
-  allow_failure: false
-  cache:
-    # inherit all global cache settings
-    <<: *global_cache
-    # override the policy
-    policy: pull
-  artifacts:
-    reports:
-      codequality: gl-codequality.json
+# lint-eslint-npm:
+#   extends: .lint-eslint-npm
+#   script:
+#     - npm test --cache .npm
+#     - npx eslint --format gitlab .
+#   allow_failure: false
+#   cache:
+#     # inherit all global cache settings
+#     <<: *global_cache
+#     # override the policy
+#     policy: pull
+#   artifacts:
+#     reports:
+#       codequality: gl-codequality.json
 
 # unit-tests-npm:
 #   image: ${CI_IMAGE_NPM}

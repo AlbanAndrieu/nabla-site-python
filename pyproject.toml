@@ -15,17 +15,38 @@ keywords = [
 classifiers = ["Private :: Do not Upload"]
 dependencies = [
     "jinja2>=3.1.6",
-    "numpy>=2.4.0",
-    "pandas>=2.3.3",
 ]
 license-files = ["LICENSE"]
 
 [project.optional-dependencies]
+toml = ["tomli; python_version < '3.11'"]
+# numpy-1 = [
+#     "numpy<2.0.0",
+# ]
+# numpy-2 = [
+#     "numpy>=2.0.0",
+# ]
+# cpu = [
+#   "torch>=2.5.1",
+# ]
+# cu128 = [
+#   "torch>=2.5.1",
+# ]
 # build = [
 #     "setuptools",
 #     "cython",
+#     "ninja>=1.13.0",
+#     "packaging>=25.0",
+#     "psutil>=7.2.1",
 # ]
-# toml = ["tomli; python_version < '3.11'"]
+# pytorch = [
+#     "python>=3.12,<4.0",
+#     "torch",
+# ]
+# nvidia = [
+#     "faiss-cpu>=1.10.0",
+#     "sentence-transformers>=5.1.0",
+# ]
 
 [project.urls]
 Homepage = "https://github.com/AlbanAndrieu/nabla-site-python"
@@ -52,7 +73,6 @@ api = [
     "ddtrace>=3.12.2",
     "dd-import>=1.0.12",
     "distro>=1.9.0",
-    "faiss-cpu>=1.10.0",
     "fastapi[standard]>=0.121.0",
     "fastapi-featureflags>=0.4.7",
     "fastapi-mail>=1.5.0",
@@ -95,7 +115,6 @@ api = [
     "redis>=4.6.0",
     "requests>=2.32.5",
     "reretry>=0.11.8",
-    "sentence-transformers>=5.1.0",
     "sentry-sdk[fastapi]",
     "sniffio>=1.3.1",
     "slowapi>=0.1.9",
@@ -161,10 +180,6 @@ panda = [
 ]
 influxdb = ["influxdb-client>=1.29.1"]
 csv = ["asyncpg>=0.27.0"]
-# pytorch = [
-#     "python>=3.12,<4.0",
-#     "torch",
-# ]
 notebook = [
     "notebook>=6.4.12",
     "nbdev>=2.3.7",
@@ -247,6 +262,7 @@ dev = ["commitizen>=4.10.0,<5"]
 github-actions = ["pytest-github-actions-annotate-failures>=0.1.7,<0.2"]
 
 [tool.uv]
+#  "pandas>=2.3.3",
 default-groups = [
     "api",
     "utils",
@@ -255,27 +271,52 @@ default-groups = [
     # "panda",
     "dev",
 ]
+conflicts = [
+  [
+    { extra = "numpy-1" },
+    { extra = "numpy-2" },
+  ],
+  [
+    { extra = "cpu" },
+    { extra = "cu128" },
+  ],
+]
+no-build-isolation-package = ["flash-attn"]
+
+[[tool.uv.dependency-metadata]]
+name = "flash-attn"
+version = "2.6.3"
+requires-dist = ["torch", "einops"]
 
 [[tool.uv.index]]
 name = "gitlab-ds"
 url = "https://gitlab.com/api/v4/groups/7364654/-/packages/pypi/simple"
 explicit = true
 
-[[tool.uv.index]]
-name = "pytorch-gpu"
-url = "https://download.pytorch.org/whl/cu128"
-explicit = true
+# [[tool.uv.index]]
+# name = "pytorch-gpu"
+# url = "https://download.pytorch.org/whl/cu128"
+# explicit = true
+# 
+# [[tool.uv.index]]
+# name = "pytorch-cpu"
+# url = "https://download.pytorch.org/whl/cpu"
+# explicit = true
 
-[[tool.uv.index]]
-name = "pytorch-cpu"
-url = "https://download.pytorch.org/whl/cpu"
-explicit = true
-
-[tool.uv.sources]
+# [tool.uv.sources]
 torch = [
-    { index = "pypi", marker = "sys_platform == 'darwin'" },
-    { index = "pytorch-cpu", marker = "sys_platform != 'darwin'" },
+  { index = "pytorch-cpu", extra = "cpu" },
+  { index = "pytorch-cu128", extra = "cu128" },
 ]
+# torch = [
+#     { index = "pypi", marker = "sys_platform == 'darwin'" },
+#     { index = "pytorch-cpu", marker = "sys_platform != 'darwin'" },
+# ]
+
+# torch = [
+#     { index = "torch-cuda", marker = "sys_platform == 'linux' and platform_machine == 'x86_64'"},
+#     { index = "torch-cpu", marker = "sys_platform == 'darwin' or (sys_platform == 'linux' and platform_machine == 'aarch64')"},
+# ]
 
 [tool.hatch.build.targets.sdist]
 include = ["api"]
