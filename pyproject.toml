@@ -293,11 +293,12 @@ name = "gitlab-ds"
 url = "https://gitlab.com/api/v4/groups/7364654/-/packages/pypi/simple"
 explicit = true
 
+# See https://medium.com/@turingmotors/5-useful-features-of-the-python-project-management-tool-uv-up-to-v0-5-3-dependencies-edition-9aab2cddceeb
 # [[tool.uv.index]]
 # name = "pytorch-gpu"
 # url = "https://download.pytorch.org/whl/cu128"
 # explicit = true
-# 
+#
 # [[tool.uv.index]]
 # name = "pytorch-cpu"
 # url = "https://download.pytorch.org/whl/cpu"
