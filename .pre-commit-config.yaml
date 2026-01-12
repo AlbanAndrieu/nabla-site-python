@@ -227,7 +227,7 @@ repos:
     # This helps ensure cross-compatibility with people who don't wish to use uv
   - repo: https://github.com/astral-sh/uv-pre-commit
     # uv version.
-    rev: 0.9.22
+    rev: 0.9.24
     hooks:
       - id: uv-sync
         name: "⚡️ uv · Sync dependencies with uv"
@@ -296,7 +296,7 @@ repos:
 
     ### Makefile ###
   - repo: https://github.com/mrtazz/checkmake.git
-    rev: v0.3.0
+    rev: v0.3.2
     hooks:
       - id: checkmake
         name: "🐮 Makefile · Lint Makefile"
@@ -425,16 +425,16 @@ repos:
     hooks:
       - id: helmlint
         name: "☸️ helmlint · Validate Helm Charts"
-  # -   repo: https://github.com/norwoodj/helm-docs
-  #     rev: '19.0614'
-  #     hooks:
-  #     -   id: helm-docs
-  #         args:
-  #         -   --chart-search-root=charts/helm-sample/charts
-  #         files: (README\.md\.gotmpl|(Chart|requirements|values)\.yaml)$
-  #         name: "☸️ helm docs · Generate Helm Charts documentation"
+    # -   repo: https://github.com/norwoodj/helm-docs
+    #     rev: '19.0614'
+    #     hooks:
+    #     -   id: helm-docs
+    #         args:
+    #         -   --chart-search-root=charts/helm-sample/charts
+    #         files: (README\.md\.gotmpl|(Chart|requirements|values)\.yaml)$
+    #         name: "☸️ helm docs · Generate Helm Charts documentation"
 
-  # ----------------------------- 🔒 Security Tools ---------------------------- #
+    # ----------------------------- 🔒 Security Tools ---------------------------- #
 
   - repo: https://github.com/PyCQA/bandit
     rev: 1.9.2

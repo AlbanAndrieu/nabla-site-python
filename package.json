@@ -8,6 +8,10 @@
 		"start": "uv run pywrangler dev"
 	},
 	"devDependencies": {
+		"opencommit": "^3.2.10",
 		"wrangler": "^4.46.0"
+	},
+	"dependencies": {
+		"commitlint": "^20.3.1"
 	}
 }

@@ -4743,7 +4743,6 @@ dependencies = [
 
 [package.dev-dependencies]
 api = [
-    { name = "alembic" },
     { name = "annotated-types" },
     { name = "ansicolors" },
     { name = "anyio" },
@@ -4753,16 +4752,8 @@ api = [
     { name = "charset-normalizer" },
     { name = "click" },
     { name = "click-completion" },
-    { name = "dd-import" },
-    { name = "ddtrace" },
     { name = "distro" },
     { name = "fastapi", extra = ["standard"] },
-    { name = "fastapi-cache2", extra = ["redis"] },
-    { name = "fastapi-featureflags" },
-    { name = "fastapi-mail" },
-    { name = "fastapi-users", extra = ["sqlalchemy"] },
-    { name = "fastmcp" },
-    { name = "gunicorn" },
     { name = "h11" },
     { name = "httpcore" },
     { name = "httpx" },
@@ -4772,15 +4763,11 @@ api = [
     { name = "langchain" },
     { name = "langchain-openai" },
     { name = "langgraph" },
-    { name = "logfire" },
     { name = "openai" },
-    { name = "ovh" },
-    { name = "pandas" },
     { name = "passlib" },
     { name = "plotly" },
     { name = "podmena" },
     { name = "polars" },
-    { name = "psycopg", extra = ["binary", "pool"] },
     { name = "pyarrow" },
     { name = "pybreaker" },
     { name = "pydantic" },
@@ -4788,7 +4775,6 @@ api = [
     { name = "pydantic-settings" },
     { name = "pyjwt" },
     { name = "pymupdf" },
-    { name = "pyroscope-io" },
     { name = "python-dotenv" },
     { name = "python-gitlab" },
     { name = "python-json-logger" },
@@ -4807,15 +4793,26 @@ api = [
     { name = "types-pytz" },
     { name = "typing-extensions" },
     { name = "typing-inspection" },
-    { name = "unleashclient" },
     { name = "urllib3" },
     { name = "uvicorn", extra = ["standard"] },
     { name = "uvicorn-worker" },
-    { name = "vercel" },
-    { name = "vercel-sandbox" },
-    { name = "vercel-sdk" },
     { name = "web-py" },
     { name = "webtypy" },
+]
+api-extra = [
+    { name = "fastapi-cache2", extra = ["redis"] },
+    { name = "fastapi-featureflags" },
+    { name = "fastapi-mail" },
+    { name = "fastapi-users", extra = ["sqlalchemy"] },
+    { name = "fastmcp" },
+    { name = "gunicorn" },
+]
+api-tracing = [
+    { name = "dd-import" },
+    { name = "ddtrace" },
+    { name = "logfire" },
+    { name = "pyroscope-io" },
+    { name = "unleashclient" },
 ]
 ci = [
     { name = "bandit" },
@@ -4825,6 +4822,11 @@ ci = [
 ]
 csv = [
     { name = "asyncpg" },
+]
+db = [
+    { name = "alembic" },
+    { name = "ovh" },
+    { name = "psycopg", extra = ["binary", "pool"] },
 ]
 deployment = [
     { name = "asyncpg" },
@@ -4840,8 +4842,14 @@ deployment = [
     { name = "sqladmin", extra = ["full"] },
     { name = "structlog" },
 ]
+deployment-vercel = [
+    { name = "vercel" },
+    { name = "vercel-sandbox" },
+    { name = "vercel-sdk" },
+]
 dev = [
     { name = "commitizen" },
+    { name = "locust" },
 ]
 encryption = [
     { name = "aiohttp" },
@@ -4894,9 +4902,6 @@ github-actions = [
 influxdb = [
     { name = "influxdb-client" },
 ]
-locust = [
-    { name = "locust" },
-]
 notebook = [
     { name = "nbdev" },
     { name = "notebook" },
@@ -4939,6 +4944,7 @@ test = [
     { name = "pytest-profiling" },
     { name = "pytest-random-order" },
     { name = "pytest-shutil" },
+    { name = "pytest-split" },
     { name = "pytest-sugar" },
     { name = "pytest-testinfra" },
     { name = "pytest-timeout" },
@@ -4963,7 +4969,6 @@ provides-extras = ["toml"]
 
 [package.metadata.requires-dev]
 api = [
-    { name = "alembic", specifier = ">=1.16.5" },
     { name = "annotated-types", specifier = ">=0.7.0" },
     { name = "ansicolors", specifier = ">=1.1.8" },
     { name = "anyio", specifier = ">=4.11.0" },
@@ -4973,16 +4978,8 @@ api = [
     { name = "charset-normalizer", specifier = ">=3.4.4" },
     { name = "click", specifier = ">=8.3.0" },
     { name = "click-completion", specifier = ">=0.5.2" },
-    { name = "dd-import", specifier = ">=1.0.12" },
-    { name = "ddtrace", specifier = ">=3.12.2" },
     { name = "distro", specifier = ">=1.9.0" },
     { name = "fastapi", extras = ["standard"], specifier = ">=0.121.0" },
-    { name = "fastapi-cache2", extras = ["redis"], specifier = ">=0.0.1" },
-    { name = "fastapi-featureflags", specifier = ">=0.4.7" },
-    { name = "fastapi-mail", specifier = ">=1.5.0" },
-    { name = "fastapi-users", extras = ["sqlalchemy"], specifier = ">=14.0.1" },
-    { name = "fastmcp", specifier = ">=2.12.2" },
-    { name = "gunicorn", specifier = ">=23.0.0" },
     { name = "h11", specifier = ">=0.16.0" },
     { name = "httpcore", specifier = ">=1.0.9" },
     { name = "httpx", specifier = ">=0.28.1" },
@@ -4992,15 +4989,11 @@ api = [
     { name = "langchain", specifier = ">=0.3.27" },
     { name = "langchain-openai", specifier = ">=0.3.32" },
     { name = "langgraph", specifier = ">=0.6.6" },
-    { name = "logfire", specifier = ">=4.2.0" },
     { name = "openai", specifier = ">=2.6.0" },
-    { name = "ovh", specifier = ">=1.2.0" },
-    { name = "pandas", specifier = ">=2.2.1" },
     { name = "passlib", specifier = ">=1.7.4" },
     { name = "plotly", specifier = ">=6.3.0" },
     { name = "podmena", specifier = ">=0.6.1" },
     { name = "polars", specifier = ">=1.32.3" },
-    { name = "psycopg", extras = ["binary", "pool"], specifier = ">=3.2.10" },
     { name = "pyarrow", specifier = ">=16.0.0" },
     { name = "pybreaker", specifier = ">=1.4.0" },
     { name = "pydantic", specifier = ">=2.12.3" },
@@ -5008,7 +5001,6 @@ api = [
     { name = "pydantic-settings" },
     { name = "pyjwt", specifier = ">=2.7.0" },
     { name = "pymupdf", specifier = ">=1.26.4" },
-    { name = "pyroscope-io", specifier = ">=0.8.5" },
     { name = "python-dotenv", specifier = ">=1.1.1" },
     { name = "python-gitlab", specifier = ">=6.4.0" },
     { name = "python-json-logger", specifier = ">=2.0.7" },
@@ -5027,15 +5019,26 @@ api = [
     { name = "types-pytz", specifier = ">=2025.2.0.20250809" },
     { name = "typing-extensions", specifier = ">=4.15.0" },
     { name = "typing-inspection", specifier = ">=0.4.2" },
-    { name = "unleashclient", specifier = ">=6.3.0" },
     { name = "urllib3", specifier = ">=2.5.0" },
     { name = "uvicorn", extras = ["standard"], specifier = ">=0.38.0" },
     { name = "uvicorn-worker", specifier = ">=0.2.0" },
-    { name = "vercel", specifier = ">=0.3.2" },
-    { name = "vercel-sandbox", specifier = ">=0.0.2" },
-    { name = "vercel-sdk", specifier = ">=0.0.8" },
     { name = "web-py", specifier = ">=0.62" },
     { name = "webtypy", specifier = ">=0.1.7" },
+]
+api-extra = [
+    { name = "fastapi-cache2", extras = ["redis"], specifier = ">=0.0.1" },
+    { name = "fastapi-featureflags", specifier = ">=0.4.7" },
+    { name = "fastapi-mail", specifier = ">=1.5.0" },
+    { name = "fastapi-users", extras = ["sqlalchemy"], specifier = ">=14.0.1" },
+    { name = "fastmcp", specifier = ">=2.12.2" },
+    { name = "gunicorn", specifier = ">=23.0.0" },
+]
+api-tracing = [
+    { name = "dd-import", specifier = ">=1.0.12" },
+    { name = "ddtrace", specifier = ">=3.12.2" },
+    { name = "logfire", specifier = ">=4.2.0" },
+    { name = "pyroscope-io", specifier = ">=0.8.5" },
+    { name = "unleashclient", specifier = ">=6.3.0" },
 ]
 ci = [
     { name = "bandit", specifier = ">=1.8.3" },
@@ -5044,6 +5047,11 @@ ci = [
     { name = "twine", specifier = ">=4.0.2" },
 ]
 csv = [{ name = "asyncpg", specifier = ">=0.27.0" }]
+db = [
+    { name = "alembic", specifier = ">=1.16.5" },
+    { name = "ovh", specifier = ">=1.2.0" },
+    { name = "psycopg", extras = ["binary", "pool"], specifier = ">=3.2.10" },
+]
 deployment = [
     { name = "asyncpg", specifier = ">=0.27.0" },
     { name = "dacite", specifier = ">=1.8.0" },
@@ -5058,7 +5066,15 @@ deployment = [
     { name = "sqladmin", extras = ["full"], specifier = ">=0.21.0" },
     { name = "structlog", specifier = ">=25.4.0" },
 ]
-dev = [{ name = "commitizen", specifier = ">=4.10.0,<5" }]
+deployment-vercel = [
+    { name = "vercel", specifier = ">=0.3.2" },
+    { name = "vercel-sandbox", specifier = ">=0.0.2" },
+    { name = "vercel-sdk", specifier = ">=0.0.8" },
+]
+dev = [
+    { name = "commitizen", specifier = ">=4.10.0,<5" },
+    { name = "locust", specifier = ">=2.18.3" },
+]
 encryption = [
     { name = "aiohttp", specifier = ">=3.8.1,<4" },
     { name = "cryptography", specifier = ">=41.0.2" },
@@ -5106,7 +5122,6 @@ format = [
 ]
 github-actions = [{ name = "pytest-github-actions-annotate-failures", specifier = ">=0.1.7,<0.2" }]
 influxdb = [{ name = "influxdb-client", specifier = ">=1.29.1" }]
-locust = [{ name = "locust", specifier = ">=2.18.3" }]
 notebook = [
     { name = "nbdev", specifier = ">=2.3.7" },
     { name = "notebook", specifier = ">=6.4.12" },
@@ -5147,6 +5162,7 @@ test = [
     { name = "pytest-profiling", specifier = ">=1.8.1" },
     { name = "pytest-random-order", specifier = ">=1.1.1" },
     { name = "pytest-shutil", specifier = ">=1.8.1" },
+    { name = "pytest-split", specifier = ">=0.10.0" },
     { name = "pytest-sugar", specifier = ">=1.0.0" },
     { name = "pytest-testinfra", specifier = ">=10.1.1" },
     { name = "pytest-timeout", specifier = ">=2.3.1" },
@@ -7261,7 +7277,7 @@ wheels = [
 
 [[package]]
 name = "pytest"
-version = "9.0.2"
+version = "8.4.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "colorama", marker = "sys_platform == 'win32' or (extra == 'extra-17-nabla-site-python-cpu' and extra == 'extra-17-nabla-site-python-cu128') or (extra == 'extra-17-nabla-site-python-numpy-1' and extra == 'extra-17-nabla-site-python-numpy-2')" },
@@ -7270,9 +7286,9 @@ dependencies = [
     { name = "pluggy" },
     { name = "pygments" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/d1/db/7ef3487e0fb0049ddb5ce41d3a49c235bf9ad299b6a25d5780a89f19230f/pytest-9.0.2.tar.gz", hash = "sha256:75186651a92bd89611d1d9fc20f0b4345fd827c41ccd5c299a868a05d70edf11", size = 1568901, upload-time = "2025-12-06T21:30:51.014Z" }
+sdist = { url = "https://files.pythonhosted.org/packages/a3/5c/00a0e072241553e1a7496d638deababa67c5058571567b92a7eaa258397c/pytest-8.4.2.tar.gz", hash = "sha256:86c0d0b93306b961d58d62a4db4879f27fe25513d4b969df351abdddb3c30e01", size = 1519618, upload-time = "2025-09-04T14:34:22.711Z" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/3b/ab/b3226f0bd7cdcf710fbede2b3548584366da3b19b5021e74f5bde2a8fa3f/pytest-9.0.2-py3-none-any.whl", hash = "sha256:711ffd45bf766d5264d487b917733b453d917afd2b0ad65223959f59089f875b", size = 374801, upload-time = "2025-12-06T21:30:49.154Z" },
+    { url = "https://files.pythonhosted.org/packages/a8/a4/20da314d277121d6534b3a980b29035dcd51e6744bd79075a6ce8fa4eb8d/pytest-8.4.2-py3-none-any.whl", hash = "sha256:872f880de3fc3a5bdc88a11b39c9710c3497a547cfa9320bc3c5e62fbf272e79", size = 365750, upload-time = "2025-09-04T14:34:20.226Z" },
 ]
 
 [[package]]
@@ -7456,6 +7472,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/a0/8d/5a60eeced74608fd2304dafc9e26815988714f8a2cfa72da99c8c3c85515/pytest-shutil-1.8.1.tar.gz", hash = "sha256:7dcc02e8a372098d51a98737e7f662e6edfd75cec7070a11e904141de49d866b", size = 37554, upload-time = "2024-11-29T19:34:17.066Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/b2/17/1b161657385982134b723dcd463483d498e54e286c5632d42602407e606f/pytest_shutil-1.8.1-py3-none-any.whl", hash = "sha256:0793e347e07b9296d814ce33377ed348ce376ffac76c0e57b28bf84235499f51", size = 15948, upload-time = "2024-11-29T19:33:26.349Z" },
+]
+
+[[package]]
+name = "pytest-split"
+version = "0.10.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "pytest" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/46/d7/e30ba44adf83f15aee3f636daea54efadf735769edc0f0a7d98163f61038/pytest_split-0.10.0.tar.gz", hash = "sha256:adf80ba9fef7be89500d571e705b4f963dfa05038edf35e4925817e6b34ea66f", size = 13903, upload-time = "2024-10-16T15:45:19.783Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d6/a7/cad88e9c1109a5c2a320d608daa32e5ee008ccbc766310f54b1cd6b3d69c/pytest_split-0.10.0-py3-none-any.whl", hash = "sha256:466096b086a7147bcd423c6e6c2e57fc62af1c5ea2e256b4ed50fc030fc3dddc", size = 11961, upload-time = "2024-10-16T15:45:18.289Z" },
 ]
 
 [[package]]

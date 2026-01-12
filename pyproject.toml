@@ -62,7 +62,6 @@ build-backend = "hatchling.build"
 api = [
     "annotated-types>=0.7.0",
     "anyio>=4.11.0",
-    "alembic>=1.16.5",
     "ansicolors>=1.1.8",
     "arel>=0.3.0",
     "asyevent>=0.2.10",
@@ -70,16 +69,8 @@ api = [
     "charset-normalizer>=3.4.4",
     "click>=8.3.0",
     "click-completion>=0.5.2",
-    "ddtrace>=3.12.2",
-    "dd-import>=1.0.12",
     "distro>=1.9.0",
     "fastapi[standard]>=0.121.0",
-    "fastapi-featureflags>=0.4.7",
-    "fastapi-mail>=1.5.0",
-    "fastapi-users[sqlalchemy]>=14.0.1",
-    "fastapi-cache2[redis]>=0.0.1",
-    "fastmcp>=2.12.2",
-    "gunicorn>=23.0.0",
     "h11>=0.16.0",
     "httpcore>=1.0.9",
     "httpx>=0.28.1",
@@ -89,21 +80,16 @@ api = [
     "langgraph>=0.6.6",
     "langchain>=0.3.27",
     "langchain-openai>=0.3.32",
-    "logfire>=4.2.0",
     "openai>=2.6.0",
-    "ovh>=1.2.0",
     "podmena>=0.6.1",
     "passlib>=1.7.4",
-    "pandas>=2.2.1",
     "plotly>=6.3.0",
     "polars>=1.32.3",
     "pybreaker>=1.4.0",
-    "psycopg[binary, pool]>=3.2.10",
     "pyarrow>=16.0.0",
     "pydantic>=2.12.3",
     "pydantic-settings",
     "PyMuPDF>=1.26.4",
-    "pyroscope-io>=0.8.5",
     "pydantic_core>=2.41.4",
     "python-dotenv>=1.1.1",
     "python-gitlab>=6.4.0",
@@ -124,17 +110,32 @@ api = [
     "typing-inspection>=0.4.2",
     "typing_extensions>=4.15.0",
     "types-pytz>=2025.2.0.20250809",
-    "UnleashClient>=6.3.0",
     "urllib3>=2.5.0",
     "uvicorn[standard]>=0.38.0",
     "uvicorn-worker>=0.2.0",
-    "vercel>=0.3.2",
-    "vercel-sandbox>=0.0.2",
-    "vercel-sdk>=0.0.8",
     "webtypy>=0.1.7",
     "web.py>=0.62",
 ]
-locust = ["locust>=2.18.3"]
+api-extra = [
+    "fastapi-featureflags>=0.4.7",
+    "fastapi-mail>=1.5.0",
+    "fastapi-users[sqlalchemy]>=14.0.1",
+    "fastapi-cache2[redis]>=0.0.1",
+    "fastmcp>=2.12.2",
+    "gunicorn>=23.0.0",
+]
+api-tracing = [
+    "ddtrace>=3.12.2",
+    "dd-import>=1.0.12",
+    "logfire>=4.2.0",
+    "pyroscope-io>=0.8.5",
+    "UnleashClient>=6.3.0",
+]
+deployment-vercel = [
+    "vercel>=0.3.2",
+    "vercel-sandbox>=0.0.2",
+    "vercel-sdk>=0.0.8",
+    ]
 deployment = [
     "python-keystoneclient>=5.1.0",
     "python-swiftclient>=4.2.0",
@@ -172,6 +173,11 @@ open_telemetry = [
     "opentelemetry-api>=1.33.1",
     "opentelemetry-sdk>=1.33.1",
 ]
+db = [
+    "alembic>=1.16.5",
+    "ovh>=1.2.0",
+    "psycopg[binary, pool]>=3.2.10",
+    ]
 panda = [
     "sqlalchemy[asyncio]>=2.0.20",
     "sqlmodel>=0.0.25",
@@ -201,7 +207,7 @@ test = [
     "pytest-profiling>=1.8.1",
     "pytest-random-order>=1.1.1",
     "pytest-shutil>=1.8.1",
-    # "pytest-split>=0.10.0",
+    "pytest-split>=0.10.0",
     "pytest-sugar>=1.0.0",
     "pytest-testinfra>=10.1.1",
     "pytest-timeout>=2.3.1",
@@ -258,7 +264,10 @@ extra = [
     "workers-py>=1.7.0",
     "workers-runtime-sdk>=0.3.1",
 ]
-dev = ["commitizen>=4.10.0,<5"]
+dev = [
+    "locust>=2.18.3",
+    "commitizen>=4.10.0,<5",
+]
 github-actions = ["pytest-github-actions-annotate-failures>=0.1.7,<0.2"]
 
 [tool.uv]
@@ -269,7 +278,8 @@ default-groups = [
     "encryption",
     "open_telemetry",
     # "panda",
-    "dev",
+    "deployment-vercel",
+    # "dev",
 ]
 conflicts = [
   [

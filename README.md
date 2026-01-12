@@ -162,3 +162,18 @@ API information endpoint.
   "description": "Sample FastAPI Hello World for Vercel and Cloudflare deployment"
 }
 ```
+
+
+### Initialize opencommit and oco
+
+1. Install opencommit:
+
+```bash
+npm install -D opencommit
+npm install --save-dev @commitlint/cli @commitlint/config-conventional @commitlint/prompt-cli commitizen cz-emoji-conventional
+
+git add .opencommit-commitlint
+oco commitlint get
+
+oco config set OCO_PROMPT_MODULE=@commitlint
+```
