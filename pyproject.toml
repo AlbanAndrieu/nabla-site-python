@@ -77,10 +77,6 @@ api = [
     "idna>=3.11",
     "jiter>=0.11.1",
     "jinja2>=3.1.6",
-    "langgraph>=0.6.6",
-    "langchain>=0.3.27",
-    "langchain-openai>=0.3.32",
-    "openai>=2.6.0",
     "podmena>=0.6.1",
     "passlib>=1.7.4",
     "plotly>=6.3.0",
@@ -101,7 +97,6 @@ api = [
     "redis>=4.6.0",
     "requests>=2.32.5",
     "reretry>=0.11.8",
-    "sentry-sdk[fastapi]",
     "sniffio>=1.3.1",
     "slowapi>=0.1.9",
     "sse-starlette>=2.3.6",
@@ -129,7 +124,14 @@ api-tracing = [
     "dd-import>=1.0.12",
     "logfire>=4.2.0",
     "pyroscope-io>=0.8.5",
+    "sentry-sdk[fastapi]",
     "UnleashClient>=6.3.0",
+]
+api-ai = [
+    "langgraph>=0.6.6",
+    "langchain>=0.3.27",
+    "langchain-openai>=0.3.32",
+    "openai>=2.6.0",
 ]
 deployment-vercel = [
     "vercel>=0.3.2",
@@ -274,9 +276,9 @@ github-actions = ["pytest-github-actions-annotate-failures>=0.1.7,<0.2"]
 #  "pandas>=2.3.3",
 default-groups = [
     "api",
-    "utils",
-    "encryption",
-    "open_telemetry",
+    # "utils",
+    # "encryption",
+    # "open_telemetry",
     # "panda",
     "deployment-vercel",
     # "dev",

@@ -170,7 +170,7 @@ API information endpoint.
 
 ```bash
 npm install -D opencommit
-npm install --save-dev @commitlint/cli @commitlint/config-conventional @commitlint/prompt-cli commitizen cz-emoji-conventional
+npm install -D @commitlint/cli @commitlint/config-conventional @commitlint/prompt-cli commitizen cz-emoji-conventional
 
 git add .opencommit-commitlint
 oco commitlint get

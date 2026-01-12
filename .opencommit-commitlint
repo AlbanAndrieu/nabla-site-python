@@ -1,4 +1,5 @@
 {
+  "hash": "7ab26911e6db91f5b6c4e7d73ca3fa4f53bda997f92a45c3ad2e6e2c3d5583c7",
   "prompts": [
     "There should always be a blank line at the beginning of the body.",
     "Each line of the body should always have 100 characters or less.",
@@ -16,11 +17,11 @@
   "consistency": {
     "english": {
       "localLanguage": "english",
-      "commitFix": "fix(server): change variable 'port' to uppercase 'PORT'",
+      "commitFix": "fix(server): change port variable to uppercase PORT",
       "commitFeat": "feat(server): allow server to listen on environment variable port",
-      "commitFixOmitScope": "fix: change variable 'port' to uppercase 'PORT'",
+      "commitFixOmitScope": "fix: change port variable to uppercase PORT",
       "commitFeatOmitScope": "feat: allow server to listen on environment variable port",
-      "commitDescription": "Fix variable naming and add feature for environment port."
+      "commitDescription": "Change port variable to uppercase and enable server port config via environment variable"
     }
   }
 }

@@ -506,7 +506,7 @@ repos:
           - "@commitlint/config-conventional"
           - conventional-changelog-conventionalcommits
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v4.11.1
+    rev: v4.11.2
     hooks:
       - id: commitizen
         name: "🌳 git · Validate commit message"
