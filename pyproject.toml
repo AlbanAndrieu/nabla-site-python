@@ -106,8 +106,6 @@ api = [
     "typing_extensions>=4.15.0",
     "types-pytz>=2025.2.0.20250809",
     "urllib3>=2.5.0",
-    "uvicorn[standard]>=0.38.0",
-    "uvicorn-worker>=0.2.0",
     "webtypy>=0.1.7",
     "web.py>=0.62",
 ]
@@ -117,6 +115,8 @@ api-extra = [
     "fastapi-users[sqlalchemy]>=14.0.1",
     "fastapi-cache2[redis]>=0.0.1",
     "fastmcp>=2.12.2",
+    "uvicorn[standard]>=0.38.0",
+    "uvicorn-worker>=0.2.0",    
     "gunicorn>=23.0.0",
 ]
 api-tracing = [
