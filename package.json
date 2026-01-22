@@ -8,14 +8,15 @@
 		"start": "uv run pywrangler dev"
 	},
 	"devDependencies": {
-		"commitlint": "^20.3.1",
-		"cz-conventional-changelog": "^3.3.0",
 		"@commitlint/cli": "^20.3.1",
 		"@commitlint/config-conventional": "^20.3.1",
+		"commitlint": "^20.3.1",
+		"cz-conventional-changelog": "^3.3.0",
 		"opencommit": "^3.2.10",
 		"wrangler": "^4.46.0"
 	},
 	"dependencies": {
+		"lodash-es": "^4.17.22",
 		"vercel": "^25.2.0"
 	},
 	"config": {
