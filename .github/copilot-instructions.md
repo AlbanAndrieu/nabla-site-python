@@ -14,12 +14,14 @@ This is a **production-grade FastAPI application** (`nabla/`) with comprehensive
 ## Development Workflow
 
 ### Package Management
+
 - **Poetry** is primary (see extensive `[tool.poetry.group.*]` in `pyproject.toml`)
 - Run `poetry install --all-extras` for full setup or specific groups: `--with api,temporal,test`
 - **pipenv** also supported: `python -m pipenv install --dev`
 - Python 3.12+ required (`pyenv install 3.12.3`)
 
 ### Build & Run Commands (Makefile-driven)
+
 ```bash
 make up-uvicorn        # Development server (port 8091)
 make up-gunicorn       # Production server with workers
@@ -32,6 +34,7 @@ make build-docker      # Build container image
 ```
 
 ### Testing Conventions
+
 - **Fixtures**: `tests/unit/conftest.py` provides `test_app` (TestClient), custom `requires_env()` decorator
 - **Markers**: `@pytest.mark.webtest`, `@pytest.mark.skip(reason="...")`
 - **Mocking**: Use `monkeypatch` fixture extensively (see `tests/unit/test_notes.py`)
@@ -40,6 +43,7 @@ make build-docker      # Build container image
 - **Environment mocking**: Mock credentials defined in `pytest.ini` env section
 
 ### Code Quality Standards
+
 - **Ruff** for formatting + linting: `ruff format .` then `ruff check . --fix`
 - **Type checking**: Pyright configured via `pyrightconfig.json`
 - **Pre-commit hooks**: Run `pre-commit install` (includes ruff, pyright, security checks)
@@ -49,6 +53,7 @@ make build-docker      # Build container image
 ## Key Patterns & Conventions
 
 ### Database Patterns
+
 - **Dual engines**: `DB_URL` (async with psycopg) and `DB_URL_INIT` (sync for pytest/migrations)
 - **Connection pooling**: Custom psycopg3 pool with `min_size=0, max_size=1` (see `nabla/api/db/database.py`)
 - **JSON serialization**: Uses `orjson` for performance (`orjson_serializer()` function)
@@ -56,12 +61,14 @@ make build-docker      # Build container image
 - **Alembic migrations**: `alembic/` directory, run `alembic upgrade head`
 
 ### API Response Patterns
+
 - **ORJSONResponse** as default response class for performance
 - **Status codes**: 201 for creation, explicit 404/400 handling
 - **Rate limiting**: SlowAPI with `@limiter.limit()` decorators
 - **Feature flags**: FastAPI-FeatureFlags integration with Unleash
 
 ### Observability Stack
+
 - **Datadog**: Automatic tracing via `ddtrace` (patch applied in fastapi_server.py), profiler starts early
 - **Metrics**: Prometheus `/metrics` endpoint with custom middleware (`nabla/utils/prometheus.py`)
 - **Logging**: Structured logging via `structlog` + custom LogMiddleware
@@ -70,12 +77,14 @@ make build-docker      # Build container image
 - **Error tracking**: Sentry SDK with FastAPI integration
 
 ### Configuration Management
+
 - **Multi-environment**: `.env.local`, `.env.secrets` loaded by docker-compose
 - **Settings class**: `_Settings` in `config_settings.py` with Pydantic validation
 - **Service discovery**: Consul-based URLs (e.g., `pg-gra.service.gra.dev.consul`)
 - **Secrets**: SecretStr for sensitive values (Redis password, API keys)
 
 ### Docker & Deployment
+
 - **Multi-stage build**: `Dockerfile` with `builder-base` target for caching
 - **Secrets**: Build-time secrets for GitLab tokens (`--secret id=CI_JOB_TOKEN`)
 - **Registry**: `registry.gitlab.com/jusmundi-group/proof-of-concept/fastapi-sample`
@@ -129,17 +138,20 @@ curl http://localhost:8091/ping
 5. **Format before commit**: `make format` then `make lint` to match CI expectations
 
 ---
-applyTo: "**"
----
+
+## applyTo: "\*\*"
+
 # Project general coding standards
 
 ## Naming Conventions
+
 - Use PascalCase for component names, interfaces, and type aliases
 - Use camelCase for variables, functions, and methods
-- Prefix private class members with underscore (_)
+- Prefix private class members with underscore (\_)
 - Use ALL_CAPS for constants
 
 ## Error Handling
+
 - Use try/catch blocks for async operations
 - Implement proper error boundaries in Vue components
 - Always log errors with contextual information

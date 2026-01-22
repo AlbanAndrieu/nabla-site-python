@@ -5,6 +5,7 @@ Sample FastAPI Hello World project deployable to Vercel and Cloudflare Wrangler.
 ## Overview
 
 This is a minimal FastAPI application with three endpoints:
+
 - `/` - Returns a hello world message
 - `/health` - Health check endpoint
 - `/api/info` - API information endpoint
@@ -19,6 +20,7 @@ This is a minimal FastAPI application with three endpoints:
 ### Setup
 
 1. Install uv (if not already installed):
+
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
@@ -38,10 +40,10 @@ vc init fastapi
 ```
 
 3. Install dependencies:
+
 ```bash
 uv sync
 ```
-
 
 ## Running Locally
 
@@ -56,11 +58,13 @@ uv run main.py
 When you make changes to your project, the server will automatically reload.
 
 3. Run the development server:
+
 ```bash
 uvicorn main:app --reload
 ```
 
 4. Access the application:
+
 - API: http://localhost:8000
 - Interactive docs: http://localhost:8000/docs
 - Alternative docs: http://localhost:8000/redoc
@@ -70,16 +74,19 @@ uvicorn main:app --reload
 ### Deploy to Vercel
 
 1. Install Vercel CLI:
+
 ```bash
 npm install -g vercel
 ```
 
 2. Deploy:
+
 ```bash
 vercel
 ```
 
 3. For production deployment:
+
 ```bash
 vercel --prod
 ```
@@ -89,16 +96,19 @@ The `vercel.json` configuration file handles the deployment settings automatical
 ### Deploy to Cloudflare Workers (with Wrangler)
 
 1. Install Wrangler CLI:
+
 ```bash
 npm install -g wrangler
 ```
 
 2. Login to Cloudflare:
+
 ```bash
 wrangler login
 ```
 
 3. Deploy:
+
 ```bash
 uv run pywrangler dev
 wrangler deploy
@@ -132,9 +142,11 @@ The `wrangler.toml` configuration file handles the deployment settings automatic
 ## API Endpoints
 
 ### GET /
+
 Returns a hello world message.
 
 **Response:**
+
 ```json
 {
   "message": "Hello World"
@@ -142,9 +154,11 @@ Returns a hello world message.
 ```
 
 ### GET /health
+
 Health check endpoint.
 
 **Response:**
+
 ```json
 {
   "status": "healthy"
@@ -152,9 +166,11 @@ Health check endpoint.
 ```
 
 ### GET /api/info
+
 API information endpoint.
 
 **Response:**
+
 ```json
 {
   "name": "nabla-site-python",
@@ -162,7 +178,6 @@ API information endpoint.
   "description": "Sample FastAPI Hello World for Vercel and Cloudflare deployment"
 }
 ```
-
 
 ### Initialize opencommit and oco
 

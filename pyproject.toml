@@ -116,7 +116,7 @@ api-extra = [
     "fastapi-cache2[redis]>=0.0.1",
     "fastmcp>=2.12.2",
     "uvicorn[standard]>=0.38.0",
-    "uvicorn-worker>=0.2.0",    
+    "uvicorn-worker>=0.2.0",
     "gunicorn>=23.0.0",
 ]
 api-tracing = [
@@ -294,6 +294,9 @@ conflicts = [
   ],
 ]
 no-build-isolation-package = ["flash-attn"]
+
+# [tool.uv.extra-build-dependencies]
+# web-py = ["cgi"]
 
 [[tool.uv.dependency-metadata]]
 name = "flash-attn"
