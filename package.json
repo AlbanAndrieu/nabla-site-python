@@ -16,8 +16,9 @@
 		"wrangler": "^4.46.0"
 	},
 	"dependencies": {
+		"@vercel/analytics": "^1.6.1",
 		"lodash-es": "^4.17.22",
-		"vercel": "^25.2.0"
+		"vercel": "^50.5.0"
 	},
 	"config": {
 		"commitizen": {
