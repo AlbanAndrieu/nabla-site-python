@@ -1,4 +1,4 @@
-# nabla-site-python-
+# nabla-site-python
 
 Sample FastAPI Hello World project deployable to Vercel and Cloudflare Wrangler.
 
@@ -14,7 +14,7 @@ This is a minimal FastAPI application with three endpoints:
 
 ### Prerequisites
 
-- Python 3.8 or higher
+- Python 3.12 or higher
 - [uv](https://docs.astral.sh/uv/) package manager
 
 ### Setup
