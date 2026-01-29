@@ -146,11 +146,15 @@ Configure the following secrets in your GitHub repository settings:
 **Features:**
 
 - Uses Python 3.12 (as required)
-- Installs only runtime dependencies (no dev/test packages) to stay within Cloudflare's free tier size limits
-- Uses `uv sync --group api --group api-cgi --no-dev` for minimal package installation
-  - Installs only 46 runtime packages
-  - Excludes 125+ development/test/extra packages
-  - Significantly reduces deployment size for Cloudflare's free tier
+- Ultra-minimal dependency installation for Cloudflare's free tier size limits
+- Uses `uv sync --group cloudflare --no-dev` with only 2 packages:
+  - `fastapi[standard]` - Core framework with essential dependencies
+  - `jinja2` - Template rendering
+- Excludes ALL unnecessary packages:
+  - ❌ redis, python-gitlab, python-json-logger, python-keycloak
+  - ❌ plotly, polars, PyMuPDF, pyarrow (data processing/PDF tools)
+  - ❌ slowapi, sse-starlette, structlog, tqdm (unused features)
+  - ❌ 125+ development/test/format/ci packages
 - Dry-run deployment on pull requests for validation
 - Full deployment on pushes to main/master branches
 - Cloudflare's Python Workers runtime provides the `workers` module automatically (no need to install `workers-py`)

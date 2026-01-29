@@ -110,6 +110,14 @@ api = [
 api-cgi = [
     "legacy-cgi; python_version >= '3.13'",
 ]
+cloudflare = [
+    # Minimal dependencies for Cloudflare Workers deployment
+    # Only includes packages actually used in api/main.py
+    "fastapi[standard]>=0.121.0",  # Core framework with standard dependencies
+    "jinja2>=3.1.6",  # Template rendering
+    # Note: FastAPI[standard] includes pydantic, uvicorn, and other essentials
+    # Note: Cloudflare runtime provides 'workers' module
+]
 api-extra = [
     "fastapi-featureflags>=0.4.7",
     "fastapi-mail>=1.5.0",

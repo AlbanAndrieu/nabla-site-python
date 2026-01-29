@@ -45,9 +45,11 @@ jobs:
 
       - name: Install runtime dependencies only (no dev/test)
         run: |
-          # Install only api and api-cgi groups (runtime dependencies)
-          # Exclude all optional groups like test, format, ci, dev, etc.
-          uv sync --group api --group api-cgi --no-dev
+          # Install only cloudflare group (minimal dependencies for Workers)
+          # This includes only fastapi[standard] and jinja2
+          # Excludes: redis, python-gitlab, python-json-logger, python-keycloak,
+          #           plotly, polars, PyMuPDF, pyarrow, and many other unused packages
+          uv sync --group cloudflare --no-dev
 
       - name: Verify installed packages
         run: |
