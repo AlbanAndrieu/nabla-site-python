@@ -47,7 +47,7 @@ uv sync
 
 ## Running Locally
 
-Start the development server on http://0.0.0.0:8000
+Start the development server on <http://0.0.0.0:8000>
 
 ```bash
 python main.py
@@ -65,9 +65,9 @@ uvicorn main:app --reload
 
 4. Access the application:
 
-- API: http://localhost:8000
-- Interactive docs: http://localhost:8000/docs
-- Alternative docs: http://localhost:8000/redoc
+- API: <http://localhost:8000>
+- Interactive docs: <http://localhost:8000/docs>
+- Alternative docs: <http://localhost:8000/redoc>
 
 ## Deployment
 
@@ -93,6 +93,13 @@ vercel --prod
 
 The `vercel.json` configuration file handles the deployment settings automatically.
 
+**Build Configuration:**
+
+Vercel uses the build command specified in `vercel.json`:
+- `buildCommand: "uv sync --group cloudflare --no-dev"` installs only production dependencies
+- Only includes the minimal `cloudflare` dependency group (fastapi[standard] and jinja2)
+- Excludes all development, testing, and formatting packages for optimal deployment size
+
 ### Deploy to Cloudflare Workers (with Wrangler)
 
 #### Manual Deployment
@@ -116,7 +123,7 @@ uv run pywrangler dev
 wrangler deploy
 ```
 
-```
+```text
 🎉  SUCCESS  Application created successfully!
 
 💻 Continue Developing
@@ -163,7 +170,7 @@ Configure the following secrets in your GitHub repository settings:
 
 ## Project Structure
 
-```
+```text
 .
 ├── main.py           # FastAPI application
 ├── pyproject.toml    # Python project configuration and dependencies (uv)

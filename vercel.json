@@ -1,5 +1,6 @@
 {
 	"$schema": "https://openapi.vercel.sh/vercel.json",
+	"buildCommand": "uv sync --group cloudflare --no-dev",
 	"outputDirectory": "public",
 	"github": {
 		"silent": true,
