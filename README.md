@@ -148,8 +148,12 @@ Configure the following secrets in your GitHub repository settings:
 - Uses Python 3.12 (as required)
 - Installs only runtime dependencies (no dev/test packages) to stay within Cloudflare's free tier size limits
 - Uses `uv sync --group api --group api-cgi --no-dev` for minimal package installation
+  - Installs only 46 runtime packages
+  - Excludes 125+ development/test/extra packages
+  - Significantly reduces deployment size for Cloudflare's free tier
 - Dry-run deployment on pull requests for validation
 - Full deployment on pushes to main/master branches
+- Cloudflare's Python Workers runtime provides the `workers` module automatically (no need to install `workers-py`)
 
 **Note:** Cloudflare Workers with Python support is currently in beta. You may need to use Cloudflare Pages with Python or adjust the configuration based on the latest Cloudflare documentation.
 
