@@ -93,6 +93,13 @@ vercel --prod
 
 The `vercel.json` configuration file handles the deployment settings automatically.
 
+**Build Configuration:**
+
+Vercel automatically uses the build script defined in `pyproject.toml`:
+- Uses `uv sync --group cloudflare --no-dev` to install only production dependencies
+- Only includes the minimal `cloudflare` dependency group (fastapi[standard] and jinja2)
+- Excludes all development, testing, and formatting packages for optimal deployment size
+
 ### Deploy to Cloudflare Workers (with Wrangler)
 
 #### Manual Deployment
