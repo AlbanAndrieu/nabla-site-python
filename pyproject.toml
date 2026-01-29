@@ -880,9 +880,6 @@ type = "confirm"
 name = "show_message"
 message = "Do you want to add body message in commit?"
 
-[tool.vercel.scripts]
-build = "uv sync --group cloudflare --no-dev"
-
 [project.scripts]
 app = "api:main"
 
