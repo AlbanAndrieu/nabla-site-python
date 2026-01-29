@@ -95,6 +95,8 @@ The `vercel.json` configuration file handles the deployment settings automatical
 
 ### Deploy to Cloudflare Workers (with Wrangler)
 
+#### Manual Deployment
+
 1. Install Wrangler CLI:
 
 ```bash
@@ -123,7 +125,31 @@ uv self update
 Deploy: npm run deploy
 ```
 
-The `wrangler.toml` configuration file handles the deployment settings automatically.
+The `wrangler.jsonc` configuration file handles the deployment settings automatically.
+
+#### Automated Deployment with GitHub Actions
+
+The repository includes a GitHub Actions workflow (`.github/workflows/cloudflare-wrangler.yml`) that automatically deploys to Cloudflare Workers on push to `master` or `main` branches.
+
+**Required Secrets:**
+
+Configure the following secrets in your GitHub repository settings:
+
+- `CLOUDFLARE_API_TOKEN` - Your Cloudflare API token with Workers deployment permissions
+- `CLOUDFLARE_ACCOUNT_ID` - Your Cloudflare account ID
+
+**How to get these values:**
+
+1. **CLOUDFLARE_API_TOKEN**: Go to Cloudflare Dashboard → My Profile → API Tokens → Create Token → Edit Cloudflare Workers template
+2. **CLOUDFLARE_ACCOUNT_ID**: Found in Cloudflare Dashboard → Workers & Pages → Overview (right sidebar)
+
+**Features:**
+
+- Uses Python 3.12 (as required)
+- Installs only runtime dependencies (no dev/test packages) to stay within Cloudflare's free tier size limits
+- Uses `uv sync --group api --group api-cgi --no-dev` for minimal package installation
+- Dry-run deployment on pull requests for validation
+- Full deployment on pushes to main/master branches
 
 **Note:** Cloudflare Workers with Python support is currently in beta. You may need to use Cloudflare Pages with Python or adjust the configuration based on the latest Cloudflare documentation.
 
