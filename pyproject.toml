@@ -468,8 +468,9 @@ vercel-sandbox = ">=0.0.2"
 vercel-sdk = ">=0.0.8"
 webtypy = ">=0.1.7"
 # "web.py" = ">=0.62"
-"web.py" = ["web.py; python_version < '3.13'"]
-legacy-cgi = ["legacy-cgi; python_version >= '3.13'"]
+# Moved to optional group due to poetry parsing issues with conditional dependencies
+# "web.py" = ["web.py; python_version < '3.13'"]
+# legacy-cgi = ["legacy-cgi; python_version >= '3.13'"]
 # htmx = "*"
 
 [tool.poetry.group.locust]
@@ -684,6 +685,14 @@ poetry-plugin-export = ">=1.8"
 
 [tool.poetry.group.dev.dependencies]
 commitizen = "^4.10.0"
+
+[tool.poetry.group.web-legacy]
+optional = true
+[tool.poetry.group.web-legacy.dependencies]
+# Conditional dependencies for web.py compatibility
+# Use web.py for Python < 3.13, legacy-cgi for Python >= 3.13
+"web.py" = {version = ">=0.62", markers = "python_version < '3.13'"}
+legacy-cgi = {version = "*", markers = "python_version >= '3.13'"}
 
 [tool.pytest.ini_options]
 testpaths = "tests/"
