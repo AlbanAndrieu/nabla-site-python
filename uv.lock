@@ -299,15 +299,6 @@ wheels = [
 ]
 
 [[package]]
-name = "ansicolors"
-version = "1.1.8"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/76/31/7faed52088732704523c259e24c26ce6f2f33fbeff2ff59274560c27628e/ansicolors-1.1.8.zip", hash = "sha256:99f94f5e3348a0bcd43c82e5fc4414013ccc19d70bd939ad71e0133ce9c372e0", size = 23027, upload-time = "2017-06-02T21:22:10.729Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/53/18/a56e2fe47b259bb52201093a3a9d4a32014f9d85071ad07e9d60600890ca/ansicolors-1.1.8-py2.py3-none-any.whl", hash = "sha256:00d2dde5a675579325902536738dd27e4fac1fd68f773fe36c21044eb559e187", size = 13847, upload-time = "2017-06-02T21:22:12.67Z" },
-]
-
-[[package]]
 name = "antlr4-python3-runtime"
 version = "4.9.3"
 source = { registry = "https://pypi.org/simple" }
@@ -4752,26 +4743,16 @@ build = [
 
 [package.dev-dependencies]
 api = [
-    { name = "annotated-types" },
-    { name = "ansicolors" },
     { name = "anyio" },
     { name = "arel" },
     { name = "asyevent" },
-    { name = "certifi" },
-    { name = "charset-normalizer" },
-    { name = "click" },
-    { name = "click-completion" },
-    { name = "distro" },
-    { name = "fastapi", extra = ["standard"] },
     { name = "h11" },
     { name = "httpcore" },
     { name = "httpx" },
     { name = "idna" },
-    { name = "jinja2" },
     { name = "jiter" },
     { name = "passlib" },
     { name = "plotly" },
-    { name = "podmena" },
     { name = "polars" },
     { name = "pyarrow" },
     { name = "pybreaker" },
@@ -4785,14 +4766,10 @@ api = [
     { name = "python-json-logger" },
     { name = "python-keycloak" },
     { name = "python-multipart" },
-    { name = "pyyaml" },
     { name = "redis" },
     { name = "requests" },
     { name = "reretry" },
     { name = "slowapi" },
-    { name = "sniffio" },
-    { name = "sse-starlette" },
-    { name = "structlog" },
     { name = "tqdm" },
     { name = "types-pytz" },
     { name = "typing-extensions" },
@@ -4806,6 +4783,10 @@ api-ai = [
 ]
 api-cgi = [
     { name = "legacy-cgi", marker = "python_full_version >= '3.13' or (extra == 'extra-17-nabla-site-python-cpu' and extra == 'extra-17-nabla-site-python-cu128') or (extra == 'extra-17-nabla-site-python-numpy-1' and extra == 'extra-17-nabla-site-python-numpy-2')" },
+]
+api-cli = [
+    { name = "click" },
+    { name = "click-completion" },
 ]
 api-extra = [
     { name = "fastapi-cache2", extra = ["redis"] },
@@ -4830,6 +4811,10 @@ ci = [
     { name = "cyclonedx-bom" },
     { name = "sphinx" },
     { name = "twine" },
+]
+cloudflare = [
+    { name = "fastapi", extra = ["standard"] },
+    { name = "jinja2" },
 ]
 csv = [
     { name = "asyncpg" },
@@ -4980,26 +4965,16 @@ provides-extras = ["build", "toml"]
 
 [package.metadata.requires-dev]
 api = [
-    { name = "annotated-types", specifier = ">=0.7.0" },
-    { name = "ansicolors", specifier = ">=1.1.8" },
     { name = "anyio", specifier = ">=4.11.0" },
     { name = "arel", specifier = ">=0.3.0" },
     { name = "asyevent", specifier = ">=0.2.10" },
-    { name = "certifi", specifier = ">=2025.10.5" },
-    { name = "charset-normalizer", specifier = ">=3.4.4" },
-    { name = "click", specifier = ">=8.3.0" },
-    { name = "click-completion", specifier = ">=0.5.2" },
-    { name = "distro", specifier = ">=1.9.0" },
-    { name = "fastapi", extras = ["standard"], specifier = ">=0.121.0" },
     { name = "h11", specifier = ">=0.16.0" },
     { name = "httpcore", specifier = ">=1.0.9" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "idna", specifier = ">=3.11" },
-    { name = "jinja2", specifier = ">=3.1.6" },
     { name = "jiter", specifier = ">=0.11.1" },
     { name = "passlib", specifier = ">=1.7.4" },
     { name = "plotly", specifier = ">=6.3.0" },
-    { name = "podmena", specifier = ">=0.6.1" },
     { name = "polars", specifier = ">=1.32.3" },
     { name = "pyarrow", specifier = ">=16.0.0" },
     { name = "pybreaker", specifier = ">=1.4.0" },
@@ -5013,14 +4988,10 @@ api = [
     { name = "python-json-logger", specifier = ">=2.0.7" },
     { name = "python-keycloak", specifier = ">=4.4.0" },
     { name = "python-multipart", specifier = ">=0.0.20" },
-    { name = "pyyaml", specifier = ">=6.0" },
     { name = "redis", specifier = ">=4.6.0" },
     { name = "requests", specifier = ">=2.32.5" },
     { name = "reretry", specifier = ">=0.11.8" },
     { name = "slowapi", specifier = ">=0.1.9" },
-    { name = "sniffio", specifier = ">=1.3.1" },
-    { name = "sse-starlette", specifier = ">=2.3.6" },
-    { name = "structlog", specifier = ">=25.4.0" },
     { name = "tqdm", specifier = ">=4.67.1" },
     { name = "types-pytz", specifier = ">=2025.2.0.20250809" },
     { name = "typing-extensions", specifier = ">=4.15.0" },
@@ -5033,6 +5004,10 @@ api-ai = [
     { name = "openai", specifier = ">=2.6.0" },
 ]
 api-cgi = [{ name = "legacy-cgi", marker = "python_full_version >= '3.13'" }]
+api-cli = [
+    { name = "click", specifier = ">=8.3.0" },
+    { name = "click-completion", specifier = ">=0.5.2" },
+]
 api-extra = [
     { name = "fastapi-cache2", extras = ["redis"], specifier = ">=0.0.1" },
     { name = "fastapi-featureflags", specifier = ">=0.4.7" },
@@ -5056,6 +5031,10 @@ ci = [
     { name = "cyclonedx-bom", specifier = ">=4.5.0" },
     { name = "sphinx", specifier = ">=7.1.2" },
     { name = "twine", specifier = ">=4.0.2" },
+]
+cloudflare = [
+    { name = "fastapi", extras = ["standard"], specifier = ">=0.121.0" },
+    { name = "jinja2", specifier = ">=3.1.6" },
 ]
 csv = [{ name = "asyncpg", specifier = ">=0.27.0" }]
 db = [
@@ -6233,18 +6212,6 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/f9/e2/3e91f31a7d2b083fe6ef3fa267035b518369d9511ffab804f839851d2779/pluggy-1.6.0.tar.gz", hash = "sha256:7dcc130b76258d33b90f61b658791dede3486c3e6bfb003ee5c9bfb396dd22f3", size = 69412, upload-time = "2025-05-15T12:30:07.975Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/54/20/4d324d65cc6d9205fabedc306948156824eb9f0ee1633355a8f7ec5c66bf/pluggy-1.6.0-py3-none-any.whl", hash = "sha256:e920276dd6813095e9377c0bc5566d94c932c33b27a3e3945d8389c374dd4746", size = 20538, upload-time = "2025-05-15T12:30:06.134Z" },
-]
-
-[[package]]
-name = "podmena"
-version = "0.6.1"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "click" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/9d/95/c7d1cc852580bfd2ae75b2e0ce81e80c5f9e04fe5ee02d405be9c1e45613/podmena-0.6.1.tar.gz", hash = "sha256:a0b811300be4f7b77ba4a43f4b1f3cc6aa4fde96dee8880c3cd67830af91d4d3", size = 11615, upload-time = "2022-02-13T12:45:47.601Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/9a/55/20b1e14dd8f0b682b638106b18ad480ee5739dec51d476ec12ab807139a4/podmena-0.6.1-py3-none-any.whl", hash = "sha256:d7271a9dc74132cc0bdf6b0a520059dec6ad2980f500f4e0860e34ae91709125", size = 11237, upload-time = "2022-02-13T12:45:46.398Z" },
 ]
 
 [[package]]
