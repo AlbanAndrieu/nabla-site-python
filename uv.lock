@@ -4815,6 +4815,7 @@ ci = [
 cloudflare = [
     { name = "fastapi", extra = ["standard"] },
     { name = "jinja2" },
+    { name = "workers-py" },
 ]
 csv = [
     { name = "asyncpg" },
@@ -5035,6 +5036,7 @@ ci = [
 cloudflare = [
     { name = "fastapi", extras = ["standard"], specifier = ">=0.121.0" },
     { name = "jinja2", specifier = ">=3.1.6" },
+    { name = "workers-py", specifier = ">=1.7.0" },
 ]
 csv = [{ name = "asyncpg", specifier = ">=0.27.0" }]
 db = [
