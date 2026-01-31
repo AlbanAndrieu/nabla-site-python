@@ -4815,6 +4815,8 @@ ci = [
 cloudflare = [
     { name = "fastapi", extra = ["standard"] },
     { name = "jinja2" },
+    { name = "workers-py" },
+    { name = "workers-runtime-sdk" },
 ]
 csv = [
     { name = "asyncpg" },
@@ -4837,11 +4839,6 @@ deployment = [
     { name = "spacy" },
     { name = "sqladmin", extra = ["full"] },
     { name = "structlog" },
-]
-deployment-vercel = [
-    { name = "vercel" },
-    { name = "vercel-sandbox" },
-    { name = "vercel-sdk" },
 ]
 dev = [
     { name = "commitizen" },
@@ -4881,8 +4878,6 @@ extra = [
     { name = "versioningit" },
     { name = "vulture" },
     { name = "webtypy" },
-    { name = "workers-py" },
-    { name = "workers-runtime-sdk" },
 ]
 format = [
     { name = "black", extra = ["d"] },
@@ -4949,6 +4944,11 @@ test = [
 utils = [
     { name = "pytesseract" },
     { name = "types-requests" },
+]
+vercel = [
+    { name = "vercel" },
+    { name = "vercel-sandbox" },
+    { name = "vercel-sdk" },
 ]
 webui = [
     { name = "gradio" },
@@ -5035,6 +5035,8 @@ ci = [
 cloudflare = [
     { name = "fastapi", extras = ["standard"], specifier = ">=0.121.0" },
     { name = "jinja2", specifier = ">=3.1.6" },
+    { name = "workers-py", specifier = ">=1.7.0" },
+    { name = "workers-runtime-sdk", specifier = ">=0.3.1" },
 ]
 csv = [{ name = "asyncpg", specifier = ">=0.27.0" }]
 db = [
@@ -5055,11 +5057,6 @@ deployment = [
     { name = "spacy", specifier = ">=3.5.4" },
     { name = "sqladmin", extras = ["full"], specifier = ">=0.21.0" },
     { name = "structlog", specifier = ">=25.4.0" },
-]
-deployment-vercel = [
-    { name = "vercel", specifier = ">=0.3.2" },
-    { name = "vercel-sandbox", specifier = ">=0.0.2" },
-    { name = "vercel-sdk", specifier = ">=0.0.8" },
 ]
 dev = [
     { name = "commitizen", specifier = ">=4.10.0,<5" },
@@ -5099,8 +5096,6 @@ extra = [
     { name = "versioningit", specifier = ">=3.3.0" },
     { name = "vulture", specifier = ">=2.14" },
     { name = "webtypy", specifier = ">=0.1.7" },
-    { name = "workers-py", specifier = ">=1.7.0" },
-    { name = "workers-runtime-sdk", specifier = ">=0.3.1" },
 ]
 format = [
     { name = "black", extras = ["d"], specifier = ">=23.9.1" },
@@ -5161,6 +5156,11 @@ test = [
 utils = [
     { name = "pytesseract", specifier = ">=0.3.13" },
     { name = "types-requests", specifier = ">=2.32.4.20250611" },
+]
+vercel = [
+    { name = "vercel", specifier = ">=0.3.2" },
+    { name = "vercel-sandbox", specifier = ">=0.0.2" },
+    { name = "vercel-sdk", specifier = ">=0.0.8" },
 ]
 webui = [
     { name = "gradio", specifier = ">=5.44.1" },

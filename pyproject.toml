@@ -113,7 +113,14 @@ cloudflare = [
     "jinja2>=3.1.6",  # Template rendering
     # Note: FastAPI[standard] includes pydantic, uvicorn, and other essentials
     # Note: Cloudflare runtime provides 'workers' module
+    "workers-py>=1.7.0",
+    "workers-runtime-sdk>=0.3.1",
 ]
+vercel = [
+    "vercel>=0.3.2",
+    "vercel-sandbox>=0.0.2",
+    "vercel-sdk>=0.0.8",
+    ]
 api-extra = [
     "fastapi-featureflags>=0.4.7",
     "fastapi-mail>=1.5.0",
@@ -142,11 +149,6 @@ api-ai = [
     "langchain-openai>=0.3.32",
     "openai>=2.6.0",
 ]
-deployment-vercel = [
-    "vercel>=0.3.2",
-    "vercel-sandbox>=0.0.2",
-    "vercel-sdk>=0.0.8",
-    ]
 deployment = [
     "python-keystoneclient>=5.1.0",
     "python-swiftclient>=4.2.0",
@@ -272,8 +274,6 @@ extra = [
     "versioningit>=3.3.0",
     "vulture>=2.14",
     "webtypy>=0.1.7",
-    "workers-py>=1.7.0",
-    "workers-runtime-sdk>=0.3.1",
 ]
 dev = [
     "locust>=2.18.3",
@@ -285,13 +285,13 @@ github-actions = ["pytest-github-actions-annotate-failures>=0.1.7,<0.2"]
 #  "pandas>=2.3.3",
 default-groups = [
     "cloudflare",
+    "vercel",
     # "api",
     # "api-cgi",
     # "utils",
     # "encryption",
     # "open_telemetry",
     # "panda",
-    "deployment-vercel",
     # "dev",
 ]
 conflicts = [
@@ -464,9 +464,6 @@ UnleashClient = ">=6.3.0"
 urllib3 = ">=2.5.0"
 uvicorn = {version = ">=0.38.0", extras = ["standard"]}
 uvicorn-worker = ">=0.2.0"
-vercel = ">=0.3.2"
-vercel-sandbox = ">=0.0.2"
-vercel-sdk = ">=0.0.8"
 webtypy = ">=0.1.7"
 # "web.py" = ">=0.62"
 # Moved to optional group due to poetry parsing issues with conditional dependencies
@@ -478,6 +475,19 @@ webtypy = ">=0.1.7"
 optional = true
 [tool.poetry.group.locust.dependencies]
 locust = ">=2.18.3"
+
+[tool.poetry.group.cloudflare]
+optional = false
+[tool.poetry.group.cloudflare.dependencies]
+workers-py = ">=1.7.0"
+workers-runtime-sdk = ">=0.3.1"
+
+[tool.poetry.group.vercel]
+optional = false
+[tool.poetry.group.vercel.dependencies]
+vercel = ">=0.3.2"
+vercel-sandbox = ">=0.0.2"
+vercel-sdk = ">=0.0.8"
 
 [tool.poetry.group.deployment]
 optional = true
@@ -669,14 +679,11 @@ versioningit = ">=3.3.0"
 vulture = ">=2.14"
 webtypy = ">=0.1.7"
 # wheel = ">=0.45.1"
-workers-py = ">=1.7.0"
-workers-runtime-sdk = ">=0.3.1"
-
 
 [tool.poetry.requires-plugins]
 poetry-plugin-export = ">=1.8"
 # poetry export -f requirements.txt --output requirements.txt --all-extras --all-groups
-# poetry export -f requirements.txt --output requirements.txt --with cloudflare,deployment --without-hashes --without-urls
+# poetry export -f requirements.txt --output requirements.txt --with cloudflare,vercel --without-hashes --without-urls
 # pip3 freeze > requirements.txt
 
 #[tool.setuptools-pipfile]
