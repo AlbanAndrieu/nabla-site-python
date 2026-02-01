@@ -1,5 +1,5 @@
 import jinja2
-# from workers import WorkerEntrypoint
+from workers import WorkerEntrypoint
 
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
@@ -378,11 +378,11 @@ async def info():
     }
 
 
-# class Default(WorkerEntrypoint):
-#     async def fetch(self, request):
-#         import asgi
-#
-#         return await asgi.fetch(app, request.js_object, self.env)
+class Default(WorkerEntrypoint):
+    async def fetch(self, request):
+        import asgi
+
+        return await asgi.fetch(app, request.js_object, self.env)
 
 
 if __name__ == "__main__":
