@@ -164,7 +164,7 @@ Configure the following secrets in your GitHub repository settings:
   - ❌ 125+ development/test/format/ci packages
 - Dry-run deployment on pull requests for validation
 - Full deployment on pushes to main/master branches
-- Cloudflare's Python Workers runtime provides the `workers` module automatically (no need to install `workers-py`)
+- **workers-py package**: Now included in the `cloudflare` dependency group for local development and type checking. The Cloudflare runtime provides the actual `workers` module at deployment time. See [docs/WORKERS_PACKAGE.md](docs/WORKERS_PACKAGE.md) for details.
 
 **Note:** Cloudflare Workers with Python support is currently in beta. You may need to use Cloudflare Pages with Python or adjust the configuration based on the latest Cloudflare documentation.
 
