@@ -112,6 +112,9 @@ cloudflare = [
     "fastapi[standard]>=0.121.0",  # Core framework with standard dependencies
     "jinja2>=3.1.6",  # Template rendering
     # Note: FastAPI[standard] includes pydantic, uvicorn, and other essentials
+    "webtypy>=0.1.7",
+]
+cloudflare-dev = [
     # Note: Cloudflare runtime provides 'workers' module
     "workers-py>=1.7.0",
     "workers-runtime-sdk>=0.3.1",
@@ -273,7 +276,6 @@ extra = [
     "versioneer[toml]>=0.29",
     "versioningit>=3.3.0",
     "vulture>=2.14",
-    "webtypy>=0.1.7",
 ]
 dev = [
     "locust>=2.18.3",
@@ -464,11 +466,6 @@ UnleashClient = ">=6.3.0"
 urllib3 = ">=2.5.0"
 uvicorn = {version = ">=0.38.0", extras = ["standard"]}
 uvicorn-worker = ">=0.2.0"
-webtypy = ">=0.1.7"
-# "web.py" = ">=0.62"
-# Moved to optional group due to poetry parsing issues with conditional dependencies
-# "web.py" = ["web.py; python_version < '3.13'"]
-# legacy-cgi = ["legacy-cgi; python_version >= '3.13'"]
 # htmx = "*"
 
 [tool.poetry.group.locust]
@@ -479,6 +476,15 @@ locust = ">=2.18.3"
 [tool.poetry.group.cloudflare]
 optional = false
 [tool.poetry.group.cloudflare.dependencies]
+webtypy = ">=0.1.7"
+# "web.py" = ">=0.62"
+# Moved to optional group due to poetry parsing issues with conditional dependencies
+# "web.py" = ["web.py; python_version < '3.13'"]
+# legacy-cgi = ["legacy-cgi; python_version >= '3.13'"]
+
+[tool.poetry.group.dev-cloudflare]
+optional = true
+[tool.poetry.group.dev-cloudflare.dependencies]
 workers-py = ">=1.7.0"
 workers-runtime-sdk = ">=0.3.1"
 
@@ -640,7 +646,6 @@ cyclonedx-bom = ">=4.5.0"
 # awscli = ">=1.32.11"
 # awscli-plugin-endpoint = ">=0.4"
 
-# [tool.poetry.dev-dependencies]
 [tool.poetry.group.extra]
 optional = true
 [tool.poetry.group.extra.dependencies]
@@ -677,7 +682,6 @@ types-PyYAML = ">=6.0.12.20250915" # for notebooks/training_example.ipynb
 versioneer = {version = ">=0.29", extras = ["toml"]}
 versioningit = ">=3.3.0"
 vulture = ">=2.14"
-webtypy = ">=0.1.7"
 # wheel = ">=0.45.1"
 
 [tool.poetry.requires-plugins]

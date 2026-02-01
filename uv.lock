@@ -4815,6 +4815,9 @@ ci = [
 cloudflare = [
     { name = "fastapi", extra = ["standard"] },
     { name = "jinja2" },
+    { name = "webtypy" },
+]
+cloudflare-dev = [
     { name = "workers-py" },
     { name = "workers-runtime-sdk" },
 ]
@@ -4877,7 +4880,6 @@ extra = [
     { name = "versioneer" },
     { name = "versioningit" },
     { name = "vulture" },
-    { name = "webtypy" },
 ]
 format = [
     { name = "black", extra = ["d"] },
@@ -5035,6 +5037,9 @@ ci = [
 cloudflare = [
     { name = "fastapi", extras = ["standard"], specifier = ">=0.121.0" },
     { name = "jinja2", specifier = ">=3.1.6" },
+    { name = "webtypy", specifier = ">=0.1.7" },
+]
+cloudflare-dev = [
     { name = "workers-py", specifier = ">=1.7.0" },
     { name = "workers-runtime-sdk", specifier = ">=0.3.1" },
 ]
@@ -5095,7 +5100,6 @@ extra = [
     { name = "versioneer", extras = ["toml"], specifier = ">=0.29" },
     { name = "versioningit", specifier = ">=3.3.0" },
     { name = "vulture", specifier = ">=2.14" },
-    { name = "webtypy", specifier = ">=0.1.7" },
 ]
 format = [
     { name = "black", extras = ["d"], specifier = ">=23.9.1" },
