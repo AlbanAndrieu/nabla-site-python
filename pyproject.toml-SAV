@@ -111,9 +111,7 @@ cloudflare = [
     # Only includes packages actually used in api/main.py
     "fastapi[standard]>=0.121.0",  # Core framework with standard dependencies
     "jinja2>=3.1.6",  # Template rendering
-    "workers-py>=1.7.0",  # Provides WorkerEntrypoint for local dev (runtime provides it in production)
     # Note: FastAPI[standard] includes pydantic, uvicorn, and other essentials
-    # Note: Cloudflare runtime provides 'workers' module at deployment, but workers-py needed for local dev
     "webtypy>=0.1.7",
 ]
 cloudflare-dev = [
